@@ -37,6 +37,19 @@ def to_usd(my_price):
 # TODO: write some Python code here to produce the desired output
 
 print(products)
+#just do lookup on one
+
+#selectedid = 8
+#matchingproduct = list(filter(lambda d: d['id'] == selectedid, products))
+
+#print(matchingproduct)
+
+#define function that gives name and price of product with id in list [items]
+
+def matchproduct(selectedid): 
+    v = list(filter(lambda d: d['id'] == selectedid, products))
+    return v
+
 
 #SELECT PRODUCTS
 #items must be:
@@ -49,33 +62,30 @@ newitem = ''
 while newitem != 'done':
     newitem = input("Enter Product Identifier, or enter 'done' to print receipt: ")
     if newitem != 'done':
-        items.append(newitem)
-#allitems = []
-#for i in items:
-#    if i != 'done':
-#        allitems.append(items)
-#    else:
-#        float(allitems)
-for i in items:
-    float(i)
+        #make newitem a float or int before appending!
+        items.append(int(newitem))
+
 print("Items entered: ",items)
 #print(items[0])
-#def lookupitems:
-firstitem = items[0]
-print(items[0])
-#x = next(item for item in products if item["id"] == items[0])
-#thefirst = list(filter(lambda stuff: stuff['id'] == 2, products)) #THIS WORKS
-newlist = []
-for c in items:
-    if filter(lambda stuff: stuff['id'] == c, products)
-    newlist.append
-#def select(c):
-#    #x = list(filter(lambda stuff: stuff['id'] == c, products))
-#    x = list(filter(lambda stuff: stuff['id'] == c, products))
-#    print(x)
-#select(items[0])
 
-#define function that gives name and price of product with id in list [items]
+#firstitem = items[0]
+#print(items[0])
+newlist = []
+for i in items:
+    v = matchproduct(i)
+    newlist.append(v)
+print(newlist)
+#remove addl brackets frmo the list
+newlist = str(newlist)[1:-1] 
+print(newlist)
+#remove irrelevant keys to create pared down dictionary version of your item list
+names = [x['name'] for x in newlist]
+prices = [x['price'] for x in newlist]
+formattedprices = to_usd(prices)
+arr = {key: value for key, value in zip(names, formattedprices)}
+print(arr)
+
+
 #check items in "items" list against id in "products"    
 
 
@@ -106,13 +116,13 @@ print("Checkout at :", checkout_time)
 print("---------------------------------")
 print("SELECTED PRODUCTS:")
 
-#TAX Calculation
+#TAX Calculation: https://realpython.com/list-comprehension-python/
 #costs = [list of item prices]
 #taxrate = .0875
 #def taxprice(tx):
 #    return tx *(1+taxrate)
 #finaltotal = [taxprice(i) for i in costs]
-#subtotal = add up total for costs and convert to USD
+#subtotal = add up total for costs and convert to USD using to_usd function
 # print("SUBTOTAL: ",subtotal)
 #taxcost = subtract subtotal from finaltotal
 #print("TAX: ",taxcost)
