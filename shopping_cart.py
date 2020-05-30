@@ -77,10 +77,15 @@ print("newlist:", newlist)
 #get the name of the items from our newlist
 #next((i for i, item in enumerate(newlist) if item["id"] == 2), None)
 
+x = newlist[0]
+x = x[0]
+print(x)
+print(type(x))
+print("selected:" , x["name"] , "" , x["price"])
 
 
-seq = [x['id'] for x in newlist]
-print(seq)
+#seq = [x['id'] for x in newlist]
+#print(seq)
 
 
 
