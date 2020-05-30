@@ -36,7 +36,7 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-print(products)
+#print(products)
 
 #define function that gives name and price of product with id in list [items]
 
@@ -61,7 +61,8 @@ while newitem != 'done':
     if newitem != 'done':
         #make newitem a float or int before appending!
         items.append(int(newitem))
-        
+        if int(newitem) > 20:
+            print("Invalid item, re-enter.")
 #remove any item greater than 20
 #check items in "items" list against id in "products" and create new list
 
@@ -70,7 +71,7 @@ for i in items:
     if i < 20:
         v = matchproduct(i)
         newlist.append(v)
-print("newlist",newlist)
+#print("newlist",newlist)
 
 #get the name of the items from our newlist
 
@@ -78,17 +79,17 @@ itemslist = []
 for x in newlist:
     for i in x:
         itemslist.append(i)
-print("itemslist:",itemslist)
+#print("itemslist:",itemslist)
 
 
 
 #pared down list
 names = [x['name'] for x in itemslist]
-print("names:", names)
+#print("names:", names)
 prices = [x['price'] for x in itemslist]
 #print("prices",prices)
 formattedprices = ["($%.2f)" % x for x in prices]
-print("formattedprices",formattedprices)
+#print("formattedprices",formattedprices)
 
 
 """multiple items in dictionaries cause the key value pairing not to work with duplicate items
@@ -101,7 +102,7 @@ for key in names:
 print("arr:",arr)
 """
 
-#use a list rather than dictionary
+#use a list rather than dictionary to then use this for selected items
 arr = list(zip(names, formattedprices)) 
 
 
