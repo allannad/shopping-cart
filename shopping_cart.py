@@ -37,12 +37,6 @@ def to_usd(my_price):
 # TODO: write some Python code here to produce the desired output
 
 print(products)
-#just do lookup on one
-
-#selectedid = 8
-#matchingproduct = list(filter(lambda d: d['id'] == selectedid, products))
-
-#print(matchingproduct)
 
 #define function that gives name and price of product with id in list [items]
 
@@ -51,42 +45,48 @@ def matchproduct(selectedid):
     return v
 
 
-#SELECT PRODUCTS
-#items must be:
-#less than 21
+
 #quit with "done"
-#limitation: assume the cashier doesn't enter newitem > 20
+
 items = []
 
 newitem = ''
 while newitem != 'done':
-    newitem = input("Enter Product Identifier, or enter 'done' to print receipt: ")
+    newitem = input("Enter Product Identifier (from 1 to 20), or enter 'done' to print receipt: ")
     if newitem != 'done':
         #make newitem a float or int before appending!
         items.append(int(newitem))
 
-print("Items entered: ",items)
-#print(items[0])
+print(items)
 
-#firstitem = items[0]
-#print(items[0])
+#remove any item greater than 20
+#check items in "items" list against id in "products" and create new list
+
 newlist = []
 for i in items:
-    v = matchproduct(i)
-    newlist.append(v)
-print(newlist)
-#remove addl brackets frmo the list
-newlist = str(newlist)[1:-1] 
-print(newlist)
-#remove irrelevant keys to create pared down dictionary version of your item list
-names = [x['name'] for x in newlist]
-prices = [x['price'] for x in newlist]
-formattedprices = to_usd(prices)
-arr = {key: value for key, value in zip(names, formattedprices)}
-print(arr)
+    if i < 20:
+        v = matchproduct(i)
+        newlist.append(v)
+print("newlist:", newlist)
 
 
-#check items in "items" list against id in "products"    
+#remove addl brackets from the list, doesn't work:
+#newlist = (newlist)[1:-1] 
+
+
+#get the name of the items from our newlist
+#next((i for i, item in enumerate(newlist) if item["id"] == 2), None)
+
+
+
+seq = [x['id'] for x in newlist]
+print(seq)
+
+
+
+
+
+
 
 
 #def nameprice(x):
@@ -96,7 +96,6 @@ print(arr)
 #if id value from projects in items:
     
 
-#??? = 
 #res = next((sub for sub in products if sub['id'] = ???), None) 
 
 #print(str(res))
@@ -131,3 +130,7 @@ print("SELECTED PRODUCTS:")
 #print("---------------------------------")
 #print("THANKS, SEE YOU SOON!")
 #print("---------------------------------")
+
+
+#use link instructions to email the receipts:
+#https://github.com/prof-rossetti/notification-service-py
