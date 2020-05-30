@@ -70,7 +70,7 @@ for i in items:
     if i < 20:
         v = matchproduct(i)
         newlist.append(v)
-
+print("newlist",newlist)
 
 #get the name of the items from our newlist
 
@@ -78,12 +78,38 @@ itemslist = []
 for x in newlist:
     for i in x:
         itemslist.append(i)
+print("itemslist:",itemslist)
+
+
 
 #pared down list
 names = [x['name'] for x in itemslist]
+print("names:", names)
 prices = [x['price'] for x in itemslist]
+#print("prices",prices)
 formattedprices = ["($%.2f)" % x for x in prices]
-arr = {key: value for key, value in zip(names, formattedprices)}
+print("formattedprices",formattedprices)
+
+
+"""
+arr={}
+for key in names: 
+    for value in formattedprices: 
+        arr[key] = value 
+        #formattedprices.remove(value) 
+        break 
+print("arr",arr)
+"""
+arr = list(zip(names, formattedprices)) 
+print(arr)
+"""for i in arr:
+    for x in i:
+        print("...", x)
+"""
+for x in arr:
+    print(*arr, sep=", ")
+
+#arr = {key: value for key, value in zip(names, formattedprices)}
 #now have items as keys, prices as values
 
 
@@ -111,8 +137,10 @@ print("---------------------------------")
 print("Checkout at:", checkout_time)
 print("---------------------------------")
 print("SELECTED PRODUCTS:")
-for key in sorted(arr.keys()):
-    print(" ... %s %s" % (key, arr[key]))
+#for i in arr:
+#    print("..." i)
+#for key in sorted(arr.keys()):
+#    print(" ... %s %s" % (key, arr[key]))
 print("---------------------------------")
 print("SUBTOTAL:", formattedsubtotal)
 print("TAX:", formattedtax)
