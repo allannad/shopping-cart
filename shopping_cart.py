@@ -44,21 +44,24 @@ def matchproduct(selectedid):
     v = list(filter(lambda d: d['id'] == selectedid, products))
     return v
 
+#TAX Calculation: https://realpython.com/list-comprehension-python/
+
+taxrate = .0875
+def taxprice(tx):
+    return tx *(1+taxrate)
 
 
-#quit with "done"
 
 items = []
 
 newitem = ''
 while newitem != 'done':
     newitem = input("Enter Product Identifier (from 1 to 20), or enter 'done' to print receipt: ")
+    #quit with "done"
     if newitem != 'done':
         #make newitem a float or int before appending!
         items.append(int(newitem))
-
-print(items)
-
+        
 #remove any item greater than 20
 #check items in "items" list against id in "products" and create new list
 
@@ -67,74 +70,57 @@ for i in items:
     if i < 20:
         v = matchproduct(i)
         newlist.append(v)
-print("newlist:", newlist)
-
-
-#remove addl brackets from the list, doesn't work:
-#newlist = (newlist)[1:-1] 
 
 
 #get the name of the items from our newlist
-#next((i for i, item in enumerate(newlist) if item["id"] == 2), None)
 
-x = newlist[0]
-x = x[0]
-print(x)
-print(type(x))
-print("selected:" , x["name"] , "" , x["price"])
+itemslist = []
+for x in newlist:
+    for i in x:
+        itemslist.append(i)
 
-
-#seq = [x['id'] for x in newlist]
-#print(seq)
-
-
-
+#pared down list
+names = [x['name'] for x in itemslist]
+prices = [x['price'] for x in itemslist]
+formattedprices = ["($%.2f)" % x for x in prices]
+arr = {key: value for key, value in zip(names, formattedprices)}
+#now have items as keys, prices as values
 
 
-
-
-
-#def nameprice(x):
-#new_dict = [a for a, b in my_dict.items() if 6 in b]
-#use the below code to loop through items list
-
-#if id value from projects in items:
-    
-
-#res = next((sub for sub in products if sub['id'] = ???), None) 
-
-#print(str(res))
-
-#create new list with product name and price
-
-
-#BEGIN RECEIPT
+#when was the checkout?
 now = datetime.now()
 checkout_time = now.strftime("%D %I:%M %p")
+
+#do the money calculation
+subtotal = [i for i in prices]
+subtotal = sum(subtotal)
+formattedsubtotal = to_usd(subtotal)
+finaltotal = [taxprice(i) for i in prices]
+finaltotal = sum(finaltotal)
+formattedfinaltotal = to_usd(finaltotal)
+tax = finaltotal - subtotal
+formattedtax = to_usd(tax)
+
+#-----------------------------------------
+#BEGIN RECEIPT
 
 print("---------------------------------")
 print("Kim's Convenience Store")
 print("www.kimsconvenience.ca")
 print("---------------------------------")
-print("Checkout at :", checkout_time)
+print("Checkout at:", checkout_time)
 print("---------------------------------")
 print("SELECTED PRODUCTS:")
+for key in sorted(arr.keys()):
+    print(" ... %s %s" % (key, arr[key]))
+print("---------------------------------")
+print("SUBTOTAL:", formattedsubtotal)
+print("TAX:", formattedtax)
+print("TOTAL:", formattedfinaltotal)
+print("---------------------------------")
+print("THANK YOU, SEE YOU SOON!")
+print("---------------------------------")
 
-#TAX Calculation: https://realpython.com/list-comprehension-python/
-#costs = [list of item prices]
-#taxrate = .0875
-#def taxprice(tx):
-#    return tx *(1+taxrate)
-#finaltotal = [taxprice(i) for i in costs]
-#subtotal = add up total for costs and convert to USD using to_usd function
-# print("SUBTOTAL: ",subtotal)
-#taxcost = subtract subtotal from finaltotal
-#print("TAX: ",taxcost)
-#totalcost = sum values in finaltotal
-#print("TOTAL: ",totalcost)
-#print("---------------------------------")
-#print("THANKS, SEE YOU SOON!")
-#print("---------------------------------")
 
 
 #use link instructions to email the receipts:
