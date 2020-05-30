@@ -91,26 +91,18 @@ formattedprices = ["($%.2f)" % x for x in prices]
 print("formattedprices",formattedprices)
 
 
-"""
+"""multiple items in dictionaries cause the key value pairing not to work with duplicate items
 arr={}
 for key in names: 
     for value in formattedprices: 
         arr[key] = value 
         #formattedprices.remove(value) 
         break 
-print("arr",arr)
+print("arr:",arr)
 """
-arr = list(zip(names, formattedprices)) 
-print(arr)
-"""for i in arr:
-    for x in i:
-        print("...", x)
-"""
-for x in arr:
-    print(*arr, sep=", ")
 
-#arr = {key: value for key, value in zip(names, formattedprices)}
-#now have items as keys, prices as values
+#use a list rather than dictionary
+arr = list(zip(names, formattedprices)) 
 
 
 #when was the checkout?
@@ -137,10 +129,8 @@ print("---------------------------------")
 print("Checkout at:", checkout_time)
 print("---------------------------------")
 print("SELECTED PRODUCTS:")
-#for i in arr:
-#    print("..." i)
-#for key in sorted(arr.keys()):
-#    print(" ... %s %s" % (key, arr[key]))
+for i in arr:
+    print("...",*i)
 print("---------------------------------")
 print("SUBTOTAL:", formattedsubtotal)
 print("TAX:", formattedtax)
