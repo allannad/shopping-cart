@@ -81,7 +81,7 @@ for x in newlist:
         itemslist.append(i)
 #print("itemslist:",itemslist)
 
-
+print(itemslist)
 
 #pared down list
 names = [x['name'] for x in itemslist]
@@ -92,15 +92,15 @@ formattedprices = ["($%.2f)" % x for x in prices]
 #print("formattedprices",formattedprices)
 
 
-"""multiple items in dictionaries cause the key value pairing not to work with duplicate items
-arr={}
-for key in names: 
-    for value in formattedprices: 
-        arr[key] = value 
-        #formattedprices.remove(value) 
-        break 
-print("arr:",arr)
-"""
+#multiple items in dictionaries cause the key value pairing not to work with duplicate items
+#arr={}
+#for key in names: 
+#    for value in formattedprices: 
+#        arr[key] = value 
+#        #formattedprices.remove(value) 
+#        break 
+#print("arr:",arr)
+
 
 #use a list rather than dictionary to then use this for selected items
 arr = list(zip(names, formattedprices)) 
@@ -140,7 +140,24 @@ print("---------------------------------")
 print("THANK YOU, SEE YOU SOON!")
 print("---------------------------------")
 
+#create list of items bought into .csv file
+import os
+import csv
+
+csv_file_path = os.path.join(os.path.dirname(__file__), "receipts", "inventory.csv")
+
+
+pareddownitemslist = itemslist
+
+toCSV = pareddownitemslist
+keys = toCSV[0].keys()
+with open(csv_file_path, 'w') as output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(toCSV)
+
 
 
 #use link instructions to email the receipts:
 #https://github.com/prof-rossetti/notification-service-py
+
