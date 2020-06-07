@@ -1,12 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "careful-synapse-278818",
-  "private_key_id": "c610c958379c968eaafd35426179d137b5ddda39",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCN1C3yAQb7rL3D\nJbiWnrcb2O22EI3okEo6Wh2HGBBynaL8FnYaAAfJHceCU9vjwJ4pypGU4Pm/L+5k\nAI/eaNNeDX82Z6SDWQSf+/jnMo5YFRnR4RHP31xQYXW5Dd6xwA+p0Rk3OIZIoxz2\nbk4tRykXhZvdPHgTb+L6k74lG5r23UxwbeOIaCnczSuZUgbj37bU4nZxylxSs9JD\nwdFE7k6QfPdziVZp6VuDQq4OYPdGpWMJxTNydqXo8RVDPGtjKqqyFQ6qxTPwIQtQ\nxbKpR0Qqu150MSu3Mi0fT2l4//r2bhK7ep8PnIfaCvvXZPsQjUka3Yt8Y0JfpiI1\ncPlhmq1HAgMBAAECggEANphMHWGm2f9rRrEBBr3O16HgE1r4/WJ5qE+jGSs6vZwP\nrsFIsgZ7+L+FWpZEST4OxCCNfMVDbgSZ3BXZS7CHWKeSZhNsYQFFxf3dGMY9xAtP\nVpqwXBfrdaemhNchd8PqY6Cxd6/DBTgAwJ3Cayx+1Wahkn6h7D2AHpv7sFYZh1gi\ntXjiTFvvbOUGcWegcWOVUm/Z1t/HNCBXytFZYoQqbsBDzsTt13+Gb1xWj1oDntN0\n3ddfgKABawn1J4npuY3+ZFuMurE+freL6GOXsKOJ8RgkywJ/tSTBoqIwCOqOh9Mw\n9LvCAFmSho0rjCAZpbokVUZPXTTrCPK8e8Y855xnjQKBgQDFujq6sg8Bvd+TTMW9\nZKH4W73a1etiEm0R54nS7tdG/o/oz3dl0YF6eBw8DLrhkcnpradT4aSvSGWIzcJS\n6W+HG/G83cimDgWlyqfLTsi5MTrmiu6/Nkqi8gZ/gUsDq5bhFJSauj87MGpsv6CM\nmDPblp7D8HscqbyQneOkzNXxOwKBgQC3oJ1lzUycgD1TordTKZrXcPo6enGE4RIS\nF8gQE2Tbh7CprngR3XtzExaDqqB1TIx84hQbls/xjYeYHQ9J8hcTywxmcZTwjzco\nx9pzkktAL16q7ploR9mAse03zyk309tpm10P0H7QOHvhFoXRVd1aDy4vyHcVsaHk\nNYNoxC9zZQKBgCcE8jQHkWiRlL5Xxynx4vjE+flmf7Xx1u5Sl+M1WOxcrf+OeYxx\nRLDrZP8AsBx1jbf8mem2vK4OhmLx3+hGwsiR3imcRs1mNP0bufMoD/pj2bDHOAgp\n6Z6wTlH5LNmDkhnG2vCR0oqWqlndkwxLuOgbmCconNLyOBD953+NIKcjAoGAFE4n\neY1lLl0j6u6wVPrhy3cLxJGroeT9iZClp9ltKrVrfKf1UQxrzULMF40zpyTq2Bhr\n3s0je3OKDfEQsr2Zfa/TVDS1IpDDqbfH2UXRGmzijAZMYnKng4qpT6WRykGcHqZ2\nePw2ObI1SKOj8o0LKB1Lny8MtBJrc3/TYy9mi90CgYBYffub0gLb6okkvBxfYLtQ\nzrbOwrCJL8E/hfiPfbGN+50yHrldYhY+dry0MajqkM6GZ7vcFrVtnC6Xbp0vQomP\n6ZDrrNZmQI9FmUUXk5K8vBSXMVYxUDSo2dhJxf4Uhdpq36nE9bbL1RNEdATDcDw0\nbcPj4RQIlN6n0z43QEc2Tw==\n-----END PRIVATE KEY-----\n",
-  "client_email": "drivecredentials@careful-synapse-278818.iam.gserviceaccount.com",
-  "client_id": "103516013771053981596",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/drivecredentials%40careful-synapse-278818.iam.gserviceaccount.com"
-}
+
