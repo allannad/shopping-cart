@@ -46,7 +46,9 @@ def matchproduct(selectedid):
 
 #TAX Calculation: https://realpython.com/list-comprehension-python/
 
-taxrate = .0875
+#Tax Rate is variable and based on user input
+taxrate = float(input("Enter tax rate as 0.XXX: "))
+print(type(taxrate))
 def taxprice(tx):
     return tx *(1+taxrate)
 
