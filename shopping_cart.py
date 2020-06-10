@@ -1,5 +1,7 @@
 # shopping_cart.py
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -47,8 +49,11 @@ def matchproduct(selectedid):
 #TAX Calculation: https://realpython.com/list-comprehension-python/
 
 #Tax Rate is variable and based on user input
-taxrate = float(input("Enter tax rate as 0.XXX: "))
-print(type(taxrate))
+#taxrate = float(input("Enter tax rate as 0.XXX: "))
+#print(type(taxrate))
+load_dotenv()
+
+taxrate = float(os.getenv("tax_rate"))
 def taxprice(tx):
     return tx *(1+taxrate)
 
