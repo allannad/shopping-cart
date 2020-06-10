@@ -88,7 +88,6 @@ for x in newlist:
         itemslist.append(i)
 #print("itemslist:",itemslist)
 
-print(itemslist)
 
 #pared down list
 names = [x['name'] for x in itemslist]
